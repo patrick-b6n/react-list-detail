@@ -12400,9 +12400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-master-detail@workspace:.":
+"react-list-detail@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-master-detail@workspace:."
+  resolution: "react-list-detail@workspace:."
   dependencies:
     "@craco/craco": 6.4.0
     "@types/react": 17.0.35

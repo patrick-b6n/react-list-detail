@@ -1,3 +1,7 @@
-# react-master-detail
+# react-list-detail
 
-Proof-of-concept for a master-detail page without using modals to keep the masters state.
+Proof-of-concept for a list-detail page without using modals.
+
+**Goals**
+* keep loaded list items
+* keep list scroll position

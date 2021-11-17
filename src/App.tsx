@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto p-2">
-        <Header title="react-master-detail" />
+        <Header title="react-list-detail" />
 
         <div className="max-w-screen-sm mx-auto">
           <Routes>

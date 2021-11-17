@@ -5,7 +5,7 @@ import ArticleList from "../components/ArticleList"
 import ArticleView from "../components/ArticleView"
 import Button from "../components/Button"
 
-const limit = 5
+const limit = 25
 
 export default function ArticlesPage() {
     const { articleId } = useParams();
@@ -13,11 +13,25 @@ export default function ArticlesPage() {
 
     const [offset, setOffset] = useState<number>(0)
     const [articles, setArticles] = useState<ArticleListDTO[]>([])
+    const [scrollY, setScrollY] = useState<number>()
 
     useEffect(() => {
         const response = Api.loadArticles(limit, offset)
         setArticles((a) => a.concat(response.result))
     }, [offset])
+
+    useEffect(() => {
+        if (articleId === undefined && scrollY !== undefined) {
+            window.scrollTo({ top: scrollY })
+            setScrollY(undefined)
+        }
+    }, [articleId, scrollY])
+
+    if (articleId) {
+        if (scrollY !== window.scrollY) {
+            setScrollY(window.scrollY)
+        }
+    }
 
     const loadMore = () => {
         setOffset(offset + limit)
