@@ -28,7 +28,7 @@ export default function ArticlesPage() {
     }, [articleId, scrollY])
 
     if (articleId) {
-        if (scrollY !== window.scrollY) {
+        if (scrollY === undefined) {
             setScrollY(window.scrollY)
         }
     }
