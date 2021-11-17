@@ -9,7 +9,7 @@ export default function ArticleList(props: ArticleListProps) {
     const { articles } = props
 
     return (
-        <div className="w-96 mx-auto">
+        <div>
             {
                 articles.map(article =>
                     <ArticleListItem
