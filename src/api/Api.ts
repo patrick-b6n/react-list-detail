@@ -20,14 +20,14 @@ type ApiInterface = {
 }
 
 function loadArticles(limit: number, offset: number): LoadArticlesResponse {
-    console.log(`Loading Articles Limit: ${limit}, Offset: ${offset}`)
+    console.log(`Loading Articles Limit: ${ limit }, Offset: ${ offset }`)
     const articles = new Array<ArticleListDTO>()
 
     for (let i = offset; i < offset + limit; i++) {
         articles.push(
             {
                 id: i,
-                title: `Title ${i}`,
+                title: `Title ${ i }`,
             }
         )
     }
@@ -41,8 +41,8 @@ function loadArticles(limit: number, offset: number): LoadArticlesResponse {
 function loadArticle(id: number): ArticleDTO {
     return {
         id: id,
-        title: `Title ${id}`,
-        description: `Description ${id}`,
+        title: `Title ${ id }`,
+        description: `Description ${ id }`,
     }
 }
 
