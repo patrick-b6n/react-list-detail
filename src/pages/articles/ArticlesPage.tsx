@@ -2,15 +2,14 @@ import { useEffect, useState } from "react"
 import Api, { ArticleListDTO } from "../../api/Api"
 import ArticleList from "./ArticleList"
 import Button from "../../components/Button"
-import { Outlet } from "react-router-dom"
-import { useParams } from "react-router";
+import { useOutlet } from "react-router-dom"
 import { useRestoreScrollPosition } from "../../hooks/UseRestoreScrollPosition";
 
 const limit = 25
 
 export default function ArticlesPage() {
-    const { articleId } = useParams();
-    useRestoreScrollPosition(() => articleId === undefined)
+    const outlet = useOutlet();
+    useRestoreScrollPosition(() => !outlet)
 
     const [offset, setOffset] = useState<number>(0)
     const [articles, setArticles] = useState<ArticleListDTO[]>([])
@@ -24,8 +23,8 @@ export default function ArticlesPage() {
         setArticles((a) => a.concat(response.result))
     }, [offset])
 
-    if (articleId) {
-        return (<Outlet />)
+    if (outlet) {
+        return outlet
     }
 
     return (
